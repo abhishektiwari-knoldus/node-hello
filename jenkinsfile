@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....abhishek'
+               sh 'docker build . -t ubuntu/abhi'
+                docker 'run -p 3000:3000 -d ubuntu/abhi'
+                docker 'run -p 3001:3001 -d ubuntu/abhi'
             }
         }
     }
