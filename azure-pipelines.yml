@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: opagent
+  opagent
 
 steps:
 - task: NodeTool@0
