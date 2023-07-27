@@ -2,6 +2,11 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+variables:
+  majorVersion: 1
+  minorVersion: $[counter(variables['majorVersion'], 0)]
+  patchVersion: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
+  versionNumber: '$(majorVersion).$(minorVersion).$(patchVersion)'
 
 trigger:
 - main
